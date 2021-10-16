@@ -1,30 +1,30 @@
 #include <iostream>
-#include <vector>
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
 
 int main() 
 {
-  vector <int> list;
+  int list[100];
   int number;
   srand(time(NULL));
 
-  for(int i; i<100; i++)
+  for(int i = 0; i<size(list); i++)
   {
     number = rand() % 150 + 1;
-    for(int j; j<list.size(); j++)
+    
+    for(int j = i; j>=1; j--)
     {
-      if(i == j)
-      {
+      if (i == j)
         continue;
-      }
-      while(number==list[i])
+
+      while(number == list[j])
       {
         number = rand() % 150 + 1;
       }
     }
-    list.push_back(number);
+
+    list[i] = number;
   }
   for(int i; i<100; i++)
   {
